@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "SingleLinkedList.h"
-#include "SingleLinkedListNode.h"
+#include "ListNode.h"
 #include <memory>
 
 using namespace std;
@@ -10,14 +10,14 @@ SingleLinkedList::SingleLinkedList()
 	this->head = nullptr;
 }
 
-SingleLinkedList::SingleLinkedList(SingleLinkedListNode * head)
+SingleLinkedList::SingleLinkedList(ListNode * head)
 {
 	this->head = head;
 }
 
 void SingleLinkedList::PrintList()
 {
-	SingleLinkedListNode* current = this->head;
+	ListNode* current = this->head;
 	cout << "\n Single Linked List is : ";
 	while (current != NULL)
 	{
@@ -27,7 +27,7 @@ void SingleLinkedList::PrintList()
 	cout << endl;
 }
 
-void SingleLinkedList::InsertInList(SingleLinkedListNode * node)
+void SingleLinkedList::InsertInList(ListNode * node)
 {
 	if (head == NULL)
 	{
@@ -35,7 +35,7 @@ void SingleLinkedList::InsertInList(SingleLinkedListNode * node)
 		return;
 	}
 
-	SingleLinkedListNode *current = this->head;
+	ListNode *current = this->head;
 	while (current->next != NULL)
 		current = current->next;
 
@@ -44,13 +44,13 @@ void SingleLinkedList::InsertInList(SingleLinkedListNode * node)
 
 void SingleLinkedList::InsertInList(int data)
 {
-	SingleLinkedListNode * newNode = new SingleLinkedListNode(data);
+	ListNode * newNode = new ListNode(data);
 	if (head == NULL)
 	{
 		head = newNode;
 		return;
 	}
-	SingleLinkedListNode *current = this->head;
+	ListNode *current = this->head;
 	while (current->next != NULL)
 		current = current->next;
 
@@ -60,9 +60,9 @@ void SingleLinkedList::InsertInList(int data)
 void SingleLinkedList::InsertInList(int val, int pos)
 {
 	int currentPos = 1;
-	SingleLinkedListNode *q = NULL;
-	SingleLinkedListNode *newNode = new SingleLinkedListNode(val);
-	SingleLinkedListNode* p = head;
+	ListNode *q = NULL;
+	ListNode *newNode = new ListNode(val);
+	ListNode* p = head;
 
 	if (pos == 1)
 	{
@@ -86,17 +86,17 @@ SingleLinkedList::~SingleLinkedList()
 {
 	while (head != NULL)
 	{
-		SingleLinkedListNode* node = head;
+		ListNode* node = head;
 		head = head->next;
 		free(node);
 	}
 }
 
-void FreeSingleLinkedList(SingleLinkedListNode* node)
+void FreeSingleLinkedList(ListNode* node)
 {
 	while (node)
 	{
-		SingleLinkedListNode* temp = node;
+		ListNode* temp = node;
 		node = node->next;
 
 		free(temp);

@@ -1,18 +1,19 @@
 #pragma once
-#include "SingleLinkedListNode.h"
+#include "ListNode.h"
 
 class SingleLinkedList
 {
 
-public:
-	SingleLinkedListNode *head;
+private:
+	ListNode *head;
 
+public:
 	SingleLinkedList();
-	SingleLinkedList(SingleLinkedListNode * head);
+	SingleLinkedList(ListNode * head);
 	
 	void PrintList();
 
-	void InsertInList(SingleLinkedListNode* node);
+	void InsertInList(ListNode* node);
 	void InsertInList(int data, int pos);
 	void InsertInList(int data);
 	

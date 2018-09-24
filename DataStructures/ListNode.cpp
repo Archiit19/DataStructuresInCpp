@@ -1,10 +1,10 @@
 #include "stdafx.h"
-#include "SingleLinkedListNode.h"
+#include "ListNode.h"
 
 using namespace std;
 
 
-SingleLinkedListNode::SingleLinkedListNode(int data)
+ListNode::ListNode(int data)
 {
 	this->data = data;
 	this->next = NULL;

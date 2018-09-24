@@ -145,15 +145,20 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SingleLinkedListNode.h" />
+    <ClInclude Include="ListNode.h" />
     <ClInclude Include="SingleLinkedList.h" />
+    <ClInclude Include="Stack.h" />
+    <ClInclude Include="StackUsingList.h" />
+    <ClInclude Include="StackUsingArray.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataStructures.cpp" />
-    <ClCompile Include="SingleLinkedListNode.cpp" />
+    <ClCompile Include="ListNode.cpp" />
     <ClCompile Include="SingleLinkedList.cpp" />
+    <ClCompile Include="StackUsingList.cpp" />
+    <ClCompile Include="StackUsingArray.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
