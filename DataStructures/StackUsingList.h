@@ -4,16 +4,18 @@
 #include "ListNode.h"
 
 //Stack implementation using Linked list.
+template <typename T>
 class StackUsingList : public Stack
 {
 private:
-	ListNode *top;
+	ListNode<T> *top;
 
 public:
 	// Implementation of these functions inherited from "Stack" Base Class.
 	bool IsEmptyStack();
-	void Push(int data);
-	int Pop();
+	void Push(T data);
+	T Pop();
 	void PrintStack();
 	void DeleteStack();
+	T Top();
 };

@@ -7,14 +7,26 @@
 #include "StackUsingArray.h"
 #include "StackUsingList.h"
 #include "Stack.h"
-#include<stack>
-#include<string>
+#include <string>
+#include <stack>
 
 using namespace std;
 
-SingleLinkedList* SingleLinkedListOperations();
-void StackOperations(Stack * sa);
+template <typename T>
+void SingleLinkedListOperations(SingleLinkedList<T>* list)
+{
+	int list_count = 0, data = 0;
+	cout << "Enter number of nodes in Single Linked List : ";
+	cin >> list_count;
+	for (int i = 0; i < list_count; i++)
+	{
+		cin >> data;
+		list->InsertInList(data);
+	}
+	list->PrintList();
+}
 
+// Returns precedence of operators.
 int precedence(char c)
 {
 	if (c == '^')
@@ -27,6 +39,7 @@ int precedence(char c)
 		return -1;
 }
 
+// Using STL Stack - stack and STL string.
 void InfixToPostfix()
 {
 	string infixStr;
@@ -89,6 +102,7 @@ void InfixToPostfix()
 	}
 }
 
+// Using defined StackUsingArray and Char *
 void InfixToPostfixChar()
 {
 	char * str = (char *)malloc(100);
@@ -96,7 +110,7 @@ void InfixToPostfixChar()
 	{
 		str[i] = '\0';
 	}
-	stack<char> operators;
+	StackUsingArray<char> operators;
 	cout << "Enter the Infix Expression (without spaces) : ";
 	cin >> str;
 	cout << "\nPostfix Expression is : " ;
@@ -108,39 +122,37 @@ void InfixToPostfixChar()
 		}
 
 		else if (*str == '(')
-			operators.push(*str);
+			operators.Push(*str);
 		else if (*str == ')')
 		{
-			while (operators.top() != '(')
+			while (operators.Top() != '(')
 			{
-				cout << operators.top();
-				operators.pop();
+				cout << operators.Pop();
 			}
-			if (operators.empty())
+			if (operators.IsEmptyStack())
 			{
 				cout << "\nInvalid Infix Expression." << endl;
 				return;
 			}
-			if(operators.top() == '(')
-				operators.pop();
+			if(operators.Top() == '(')
+				operators.Pop();
 		}
 
 		else if (*str == '^' || *str == '*' || *str == '+' || *str == '-' || *str == '/')
 		{
-			if (operators.empty())
-				operators.push(*str);
-			else if (precedence(*str) > precedence(operators.top()))
+			if (operators.IsEmptyStack())
+				operators.Push(*str);
+			else if (precedence(*str) > precedence(operators.Top()))
 			{
-				operators.push(*str);
+				operators.Push(*str);
 			}
 			else
 			{
-				while (!operators.empty() && precedence(operators.top()) >= precedence(*str))
+				while (!operators.IsEmptyStack() && precedence(operators.Top()) >= precedence(*str))
 				{
-					cout << operators.top();
-					operators.pop();
+					cout << operators.Pop();
 				}
-				operators.push(*str);
+				operators.Push(*str);
 			}
 		}
 		else
@@ -149,54 +161,75 @@ void InfixToPostfixChar()
 		}
 		str++;
 	}
-	while (!operators.empty())
+	while (!operators.IsEmptyStack())
 	{
-		cout << operators.top();
-		operators.pop();
+		cout << operators.Pop();
 	}
+}
+
+// Using defined StackUsingArray.
+void PostfixEvaluation()
+{
+	cout << "Enter Postfix Expression : ";
+	string postfixStr;
+	StackUsingArray<int> evalStack;
+	cin >> postfixStr;
+	int left, right, newVal;
+
+	for (int i = 0; i<postfixStr.length(); i++)
+	{
+		if (postfixStr[i] >= '0' && postfixStr[i] <= '9')
+			evalStack.Push(postfixStr[i] - '0'); // Converting char to int.
+
+		else if (postfixStr[i] == '+' || postfixStr[i] == '-' || postfixStr[i] == '*' || postfixStr[i] == '/')
+		{
+			right = evalStack.Pop();
+			left = evalStack.Pop();
+			switch (postfixStr[i])
+			{
+				case '+': newVal = left + right; break;
+				case '-': newVal = left - right; break;
+				case '*': newVal = left * right; break;
+				case '/': newVal = left / right; break;
+			}
+			evalStack.Push(newVal);
+		}
+
+		else
+		{
+			cout << "Invalid Postfix Expression." << endl;
+			break;
+		}
+	}
+	if (evalStack.Size() == 1)
+		cout << evalStack.Pop() << endl;
+	else
+		cout << "Invalid Stack State." << endl;
+}
+
+void StackOperations(Stack * sa)
+{
+	InfixToPostfix();
+	InfixToPostfixChar();
+	PostfixEvaluation();
 }
 
 int main()
 {
-	//SingleLinkedList * llist = SingleLinkedListOperations();
-	//Stack * stack1 = new StackUsingArray();
-	//Stack * stack2 = new StackUsingList();
-	//StackOperations(stack1);
-	//StackOperations(stack2);
+	SingleLinkedList<int> * llist = new SingleLinkedList<int>();
+	SingleLinkedListOperations(llist);
 	
-	//InfixToPostfix();
-	//InfixToPostfixChar();
-
+	Stack* stack1 = new StackUsingArray<int>();
+	Stack* stack2 = new StackUsingList<int>();
+	
+	StackOperations(stack1);
+	StackOperations(stack2);
+	
 	getchar();
     return 0;
 }
 
 
-SingleLinkedList* SingleLinkedListOperations()
-{
-	int list_count = 0, data = 0;
-	SingleLinkedList* list = new SingleLinkedList();
-	cout << "Enter number of nodes in Single Linked List : ";
-	cin >> list_count;
-	for (int i = 0; i < list_count; i++)
-	{
-		cin >> data;
-		list->InsertInList(data);
-	}
-	list->PrintList();
-	return list;
-}
 
-void StackOperations(Stack * sa)
-{
-	sa->Push(90); sa->Push(10);
 
-	cout << "Element Popped is : " << sa->Pop() << endl;
-	cout << "Element Popped is : " << sa->Pop() << endl;
 
-	sa->Push(20); 	sa->Push(10); 	sa->Push(30);	sa->Push(40);
-	sa->Push(50);	sa->Push(60);	sa->Push(10);	sa->Push(90);
-	sa->PrintStack();
-	cout << "Element Popped is : " << sa->Pop() << endl;
-	sa->DeleteStack();
-}

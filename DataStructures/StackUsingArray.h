@@ -4,16 +4,18 @@
 #include <vector>
 
 //Stack implementation using Vector.
+template <typename T>
 class StackUsingArray : public Stack
 {
 private:
-	std::vector<int> stack_a;
+	std::vector<T> stack_a;
 
 public:
 	// Implementation of these functions inherited from "Stack" Base Class.
 	bool IsEmptyStack();
-	void Push(int data);
-	int Pop();
+	void Push(T data);
+	T Pop();
 	void PrintStack();
 	void DeleteStack();
+	T Top();
 };

@@ -9,10 +9,12 @@ protected:
 
 public:
 	Stack() : size(0) {};
-	virtual int Pop() = 0;
-	virtual void Push(int data) = 0;
 	virtual bool IsEmptyStack() = 0;
 	virtual void PrintStack() = 0;
 	virtual void DeleteStack() = 0;
+	inline int Size()
+	{
+		return size;
+	}
 
 };

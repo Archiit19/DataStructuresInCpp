@@ -5,19 +5,22 @@
 
 using namespace std;
 
-SingleLinkedList::SingleLinkedList()
+template<typename T>
+SingleLinkedList<T>::SingleLinkedList()
 {
 	this->head = nullptr;
 }
 
-SingleLinkedList::SingleLinkedList(ListNode * head)
+template<typename T>
+SingleLinkedList<T>::SingleLinkedList(ListNode<T> * head)
 {
 	this->head = head;
 }
 
-void SingleLinkedList::PrintList()
+template<typename T>
+void SingleLinkedList<T>::PrintList()
 {
-	ListNode* current = this->head;
+	ListNode<T>* current = this->head;
 	cout << "\n Single Linked List is : ";
 	while (current != NULL)
 	{
@@ -27,7 +30,8 @@ void SingleLinkedList::PrintList()
 	cout << endl;
 }
 
-void SingleLinkedList::InsertInList(ListNode * node)
+template<typename T>
+void SingleLinkedList<T>::InsertInList(ListNode<T> * node)
 {
 	if (head == NULL)
 	{
@@ -35,34 +39,36 @@ void SingleLinkedList::InsertInList(ListNode * node)
 		return;
 	}
 
-	ListNode *current = this->head;
+	ListNode<T> *current = this->head;
 	while (current->next != NULL)
 		current = current->next;
 
 	current->next = node;
 }
 
-void SingleLinkedList::InsertInList(int data)
+template<typename T>
+void SingleLinkedList<T>::InsertInList(T data)
 {
-	ListNode * newNode = new ListNode(data);
+	ListNode<T> * newNode = new ListNode(data);
 	if (head == NULL)
 	{
 		head = newNode;
 		return;
 	}
-	ListNode *current = this->head;
+	ListNode<T> *current = this->head;
 	while (current->next != NULL)
 		current = current->next;
 
 	current->next = newNode;
 }
 
-void SingleLinkedList::InsertInList(int val, int pos)
+template<typename T>
+void SingleLinkedList<T>::InsertInList(T val, int pos)
 {
 	int currentPos = 1;
-	ListNode *q = NULL;
-	ListNode *newNode = new ListNode(val);
-	ListNode* p = head;
+	ListNode<T> *q = NULL;
+	ListNode<T> *newNode = new ListNode(val);
+	ListNode<T> * p = head;
 
 	if (pos == 1)
 	{
@@ -82,23 +88,25 @@ void SingleLinkedList::InsertInList(int val, int pos)
 	}
 }
 
-SingleLinkedList::~SingleLinkedList()
+template<typename T>
+SingleLinkedList<T>::~SingleLinkedList()
 {
 	while (head != NULL)
 	{
-		ListNode* node = head;
+		ListNode<T>* node = head;
 		head = head->next;
 		free(node);
 	}
 }
 
-void FreeSingleLinkedList(ListNode* node)
+// Independent Function - Not a Class member.
+template<typename T>
+void FreeSingleLinkedList(ListNode<T>* node)
 {
 	while (node)
 	{
-		ListNode* temp = node;
+		ListNode<T>* temp = node;
 		node = node->next;
-
 		free(temp);
 	}
 }

@@ -3,8 +3,8 @@
 
 using namespace std;
 
-
-ListNode::ListNode(int data)
+template <typename T>
+ListNode<T>::ListNode(T data)
 {
 	this->data = data;
 	this->next = NULL;

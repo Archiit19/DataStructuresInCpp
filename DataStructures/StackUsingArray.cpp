@@ -3,24 +3,27 @@
 
 using namespace std;
 
-bool StackUsingArray::IsEmptyStack()
+template<typename T>
+bool StackUsingArray<T>::IsEmptyStack()
 {
 	if(size == 0)
 		return true;
 	return false;
 }
 
-void StackUsingArray::Push(int data)
+template<typename T>
+void StackUsingArray<T>::Push(T data)
 {
 	stack_a.push_back(data);
 	size++;
 }
 
-int StackUsingArray::Pop()
+template<typename T>
+T StackUsingArray<T>::Pop()
 {
 	if (!IsEmptyStack())
 	{
-		int elem_to_pop = stack_a.back();
+		T elem_to_pop = stack_a.back();
 		stack_a.pop_back();
 		size--;
 		return elem_to_pop;
@@ -29,7 +32,20 @@ int StackUsingArray::Pop()
 	return -1;
 }
 
-void StackUsingArray::PrintStack()
+template<typename T>
+T StackUsingArray<T>::Top()
+{
+	if (!IsEmptyStack())
+	{
+		T elem_to_pop = stack_a.back();
+		return elem_to_pop;
+	}
+	cout << "\nException in popping element : Stack is Empty..!!" << endl;
+	return -1;
+}
+
+template<typename T>
+void StackUsingArray<T>::PrintStack()
 {
 	cout << "\nStack is : ";
 	for (int i = size-1; i>=0; i--)
@@ -37,8 +53,12 @@ void StackUsingArray::PrintStack()
 	cout << endl;
 }
 
-void StackUsingArray::DeleteStack()
+template<typename T>
+void StackUsingArray<T>::DeleteStack()
 {
 	stack_a.clear();
 	size = 0;
 }
+
+
+
