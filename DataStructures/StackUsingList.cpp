@@ -3,13 +3,6 @@
 
 using namespace std;
 
-template <typename T>
-bool StackUsingList<T>::IsEmptyStack()
-{
-	if (top == NULL)
-		return true;
-	return false;
-}
 
 template <typename T>
 void StackUsingList<T>::Push(T data)
@@ -51,7 +44,7 @@ T StackUsingList<T>::Top()
 }
 
 template <typename T>
-void StackUsingList<T>::PrintStack()
+void PrintStack()
 {
 	ListNode<T> * current = top;
 	cout << "\nStack is : ";
@@ -64,7 +57,7 @@ void StackUsingList<T>::PrintStack()
 }
 
 template <typename T>
-void StackUsingList<T>::DeleteStack()
+void DeleteStack()
 {
 	while (top != NULL)
 	{

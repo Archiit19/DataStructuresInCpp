@@ -4,7 +4,7 @@ template <typename T>
 class ListNode
 {
 public:
-	int data;
+	T data;
 	ListNode* next;
 
 	ListNode(T data);

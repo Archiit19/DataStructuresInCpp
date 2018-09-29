@@ -9,7 +9,13 @@ protected:
 
 public:
 	Stack() : size(0) {};
-	virtual bool IsEmptyStack() = 0;
+	
+	inline bool IsEmptyStack()
+	{
+		if (size == 0)
+			return true;
+		return false;
+	}
 	virtual void PrintStack() = 0;
 	virtual void DeleteStack() = 0;
 	inline int Size()

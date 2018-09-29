@@ -12,10 +12,7 @@ private:
 
 public:
 	// Implementation of these functions inherited from "Stack" Base Class.
-	bool IsEmptyStack();
 	void Push(T data);
 	T Pop();
-	void PrintStack();
-	void DeleteStack();
 	T Top();
 };

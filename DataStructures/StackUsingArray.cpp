@@ -3,13 +3,6 @@
 
 using namespace std;
 
-template<typename T>
-bool StackUsingArray<T>::IsEmptyStack()
-{
-	if(size == 0)
-		return true;
-	return false;
-}
 
 template<typename T>
 void StackUsingArray<T>::Push(T data)
@@ -45,7 +38,7 @@ T StackUsingArray<T>::Top()
 }
 
 template<typename T>
-void StackUsingArray<T>::PrintStack()
+void PrintStack()
 {
 	cout << "\nStack is : ";
 	for (int i = size-1; i>=0; i--)
@@ -54,7 +47,7 @@ void StackUsingArray<T>::PrintStack()
 }
 
 template<typename T>
-void StackUsingArray<T>::DeleteStack()
+void DeleteStack()
 {
 	stack_a.clear();
 	size = 0;

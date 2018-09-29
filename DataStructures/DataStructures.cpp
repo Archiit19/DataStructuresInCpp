@@ -9,11 +9,15 @@
 #include "Stack.h"
 #include <string>
 #include <stack>
+#include <queue>
+#include "BinaryTree.h"
+
+
 
 using namespace std;
 
 template <typename T>
-void SingleLinkedListOperations(SingleLinkedList<T>* list)
+void SingleLinkedListOperations(SingleLinkedList<T> list)
 {
 	int list_count = 0, data = 0;
 	cout << "Enter number of nodes in Single Linked List : ";
@@ -21,9 +25,9 @@ void SingleLinkedListOperations(SingleLinkedList<T>* list)
 	for (int i = 0; i < list_count; i++)
 	{
 		cin >> data;
-		list->InsertInList(data);
+		list.InsertInList(data);
 	}
-	list->PrintList();
+	list.PrintList();
 }
 
 // Returns precedence of operators.
@@ -47,7 +51,7 @@ void InfixToPostfix()
 	cout << "Enter the Infix Expression (without spaces) : ";
 	cin >> infixStr;
 	cout << endl;
-	for (int i = 0; i < infixStr.length(); i++)
+	for (unsigned int i = 0; i < infixStr.length(); i++)
 	{
 		if ((infixStr[i]>='a' && infixStr[i]<='z') || (infixStr[i]>='A' && infixStr[i]<='Z'))
 		{
@@ -103,6 +107,7 @@ void InfixToPostfix()
 }
 
 // Using defined StackUsingArray and Char *
+/*
 void InfixToPostfixChar()
 {
 	char * str = (char *)malloc(100);
@@ -166,8 +171,9 @@ void InfixToPostfixChar()
 		cout << operators.Pop();
 	}
 }
-
+*/
 // Using defined StackUsingArray.
+/*
 void PostfixEvaluation()
 {
 	cout << "Enter Postfix Expression : ";
@@ -176,7 +182,7 @@ void PostfixEvaluation()
 	cin >> postfixStr;
 	int left, right, newVal;
 
-	for (int i = 0; i<postfixStr.length(); i++)
+	for (unsigned int i = 0; i<postfixStr.length(); i++)
 	{
 		if (postfixStr[i] >= '0' && postfixStr[i] <= '9')
 			evalStack.Push(postfixStr[i] - '0'); // Converting char to int.
@@ -206,25 +212,87 @@ void PostfixEvaluation()
 	else
 		cout << "Invalid Stack State." << endl;
 }
-
+*/
 void StackOperations(Stack * sa)
 {
 	InfixToPostfix();
-	InfixToPostfixChar();
-	PostfixEvaluation();
+	//InfixToPostfixChar();
+	//PostfixEvaluation();
+}
+
+bool AreMirrors(TreeNode * A, TreeNode *B)
+{
+	if (A == NULL && B == NULL)
+		return 1;
+	else if (A == NULL || B == NULL)
+		return 0;
+	else if (A->data != B->data)
+		return 0;
+	else
+		return AreMirrors(A->left, B->right) && AreMirrors(A->right, B->left);
+}
+
+TreeNode* MakeMirrorTree(TreeNode * root)
+{
+	if (root)
+	{
+		MakeMirrorTree(root->left);
+		MakeMirrorTree(root->right);
+
+		TreeNode * temp = root->left;
+		root->left = root->right;
+		root->right = temp;
+	}
+	return root;
+}
+
+void TreeOperations()
+{
+
+	BinaryTree aTree;
+	BinaryTree bTree;
+	aTree.Insert(1);	  bTree.Insert(1);
+	aTree.Insert(2);	  bTree.Insert(2);
+	aTree.Insert(3);	  bTree.Insert(3);
+	aTree.Insert(4);	  bTree.Insert(4);
+	aTree.Insert(5);	  bTree.Insert(5);
+	aTree.Insert(6);	  bTree.Insert(6);
+	aTree.Insert(7);	  bTree.Insert(7);
+
+	aTree.InOrderTraversal(); cout << endl;
+	aTree.LevelOrderTraversal(); cout << endl;
+	aTree.ReverseLevelOrderTraversal(); cout << endl;
+
+	bTree.InOrderTraversal(); cout << endl;
+	bTree.LevelOrderTraversal(); cout << endl;
+	bTree.ReverseLevelOrderTraversal(); cout << endl;
+
+	if (AreMirrors(aTree.root, bTree.root))
+		cout << "\n Mirror Trees";
+	else
+		cout << "\nNot Mirror Trees. ";
+
+	TreeNode * newMirroredRootNode = MakeMirrorTree(aTree.root);
+	BinaryTree newTree(newMirroredRootNode);
+
+	newTree.InOrderTraversal(); cout << endl;
+	newTree.LevelOrderTraversal(); cout << endl;
+	newTree.ReverseLevelOrderTraversal(); cout << endl;
 }
 
 int main()
 {
-	SingleLinkedList<int> * llist = new SingleLinkedList<int>();
-	SingleLinkedListOperations(llist);
+	//SingleLinkedList<int> llist;
+	//SingleLinkedListOperations(llist);
 	
-	Stack* stack1 = new StackUsingArray<int>();
-	Stack* stack2 = new StackUsingList<int>();
+	//Stack* stack1 = new StackUsingArray<int>();
+	//Stack* stack2 = new StackUsingList<int>();
 	
-	StackOperations(stack1);
-	StackOperations(stack2);
+	//StackOperations(stack1);
+	//StackOperations(stack2);
 	
+	TreeOperations();
+
 	getchar();
     return 0;
 }
