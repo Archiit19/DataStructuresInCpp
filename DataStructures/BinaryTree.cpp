@@ -59,6 +59,92 @@ void BinaryTree::InOrderTraversal()
 	cout << endl;
 }
 
+void BinaryTree::InOrderTraversalIterative()
+{
+	cout << "InOrder Iterative Traversal is : ";
+
+	TreeNode * temp = root;
+	stack<TreeNode *> s;
+	while (1)
+	{
+		while (temp)
+		{
+			s.push(temp);
+			temp = temp->left;
+		}
+		if (s.empty())
+			break;
+
+		temp = s.top();
+		s.pop();
+		cout << temp->data << " ";
+		temp = temp->right;
+	}
+	cout << endl;
+}
+
+void BinaryTree::PreOrderTraversalIterative()
+{
+	cout << "PreOrder Iterative Traversal is : ";
+
+	TreeNode * temp = root;
+	stack<TreeNode*> s;
+	while(1)
+	{
+		while (temp)
+		{
+			cout << temp->data << " ";
+			s.push(temp);
+			temp = temp->left;
+		}
+		if (s.empty())
+			break;
+		temp = s.top();
+		s.pop();
+		temp = temp->right;
+	}
+	cout << endl;
+}
+
+void BinaryTree::PostOrderTraversalIterativeDSBook()
+{
+	cout << "PostOrder Iterative Traversal is : ";
+	TreeNode * temp = root;
+	TreeNode * previous = NULL;
+
+	stack<TreeNode *> s;
+	s.push(temp);
+	while (!s.empty())
+	{
+		TreeNode * current = s.top();
+		if (!previous || previous->left == current || previous->right == current)
+		{
+			if (current->left)
+				s.push(current->left);
+			else if (current->right)
+				s.push(current->right);
+			else
+			{
+				cout << current->data; 
+				current = s.top();s.pop();
+				previous = current;
+				continue;
+			}
+ 		}
+		else if (current->left == previous)
+		{
+			if (current->right)
+				s.push(current->right);
+		}
+		else
+		{
+			cout << current->data; s.pop();
+		}
+		previous = current;
+	}
+	cout << endl;
+}
+
 void PostOrderHelper(TreeNode* temp)
 {
 	if (temp)

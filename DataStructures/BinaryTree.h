@@ -11,6 +11,12 @@ public:
 	BinaryTree(TreeNode * rootNode);
 
 	void Insert(int data);
+	
+
+	void InOrderTraversalIterative();
+	void PreOrderTraversalIterative();
+	void PostOrderTraversalIterativeDSBook();
+
 	void InOrderTraversal();
 	void PostOrderTraversal();
 	void PreOrderTraversal();
