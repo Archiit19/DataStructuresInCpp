@@ -42,16 +42,41 @@ void BinarySearchTree::Search(int data)
 
 TreeNode* BinarySearchTree::DeleteHelper(TreeNode * temp, int data)
 {
-	if (temp == NULL)
-		return new TreeNode(data);
-	if (data < temp->data)
-		return DeleteHelper(temp->left, data);
-	return DeleteHelper(temp->right, data);
+	TreeNode * foundNode;
+
+	if (temp->data < data)
+		temp->right = DeleteHelper(temp->right, data);
+	else if (temp->data > data)
+		temp->left = DeleteHelper(temp->left, data);
+	else
+	{
+		if (temp->left && temp->right)
+		{
+			foundNode = FindMaxHelper(temp->left);
+			temp->data = foundNode->data;
+			temp->left = DeleteHelper(temp->left, temp->data);
+		}
+		else
+		{
+			foundNode = temp;
+			if (temp->left == NULL)
+				temp = temp->right;
+			else if (temp->right == NULL)
+				temp = temp->left;
+			delete(foundNode);
+		}
+	}
+	return temp;
 }
 
 void BinarySearchTree::Delete(int data)
 {
-
+	if (root == NULL)
+	{
+		cout << "Element not found in tree" << endl;
+		return;
+	}
+	DeleteHelper(root, data);
 }
 
 
@@ -78,7 +103,7 @@ int BinarySearchTree::FindMaxElementIterative()
 	return max;
 }
 
-TreeNOde * BinarySearchTree::FindMaxHelper(TreeNode * temp)
+TreeNode * BinarySearchTree::FindMaxHelper(TreeNode * temp)
 {
 	if (temp == NULL)
 		return NULL;
@@ -87,28 +112,29 @@ TreeNOde * BinarySearchTree::FindMaxHelper(TreeNode * temp)
 		temp = temp->right;
 
 	return temp;
-
-	int root_val, left, right, max = INT_MIN;
-	if (temp != NULL)
-	{
-		root_val = temp->data;
-		left = FindMaxHelper(temp->left);
-		right = FindMaxHelper(temp->right);
-		if (left > right)
-			max = left;
-		else
-			max = right;
-		if (root_val > max)
-			max = root_val;
-	}
-	return max;
 }
 
 int BinarySearchTree::FindMaxElementRecursive()
 {
-	int max = FindMaxHelper(root);
-	cout << "Max Element using Recursive approach is : " << max << endl;
-	return max;
+	TreeNode* maxNode = FindMaxHelper(root);
+	cout << "Maximum element in BST using Recursive approach is : " << maxNode->data << endl;
+	return maxNode->data;
+}
+
+TreeNode * FindMinHelper(TreeNode * temp)
+{
+	if (temp == NULL)
+		return temp;
+	while (temp->left != NULL)
+		temp = temp->left;
+	return temp;
+}
+
+int BinarySearchTree::FindMinElementRecursive()
+{
+	TreeNode * minNode = FindMinHelper(root);
+	cout << "Minimum element in BST using Recursive approach is : " << minNode->data << endl;
+	return minNode->data;
 }
 
 int BinarySearchTree::Size()

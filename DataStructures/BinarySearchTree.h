@@ -18,9 +18,11 @@ public:
 	void Delete(int data);
 
 	int FindMaxElementIterative();
-	int FindMaxHelper(TreeNode * temp);
+	TreeNode * FindMaxHelper(TreeNode * temp);
 	int FindMaxElementRecursive();
 
+
+	int FindMinElementRecursive();
 
 	int Size();
 	int SizeRecursionHelper(TreeNode *temp);

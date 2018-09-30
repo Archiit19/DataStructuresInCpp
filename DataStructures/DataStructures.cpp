@@ -307,18 +307,13 @@ void BinarySearchTreeOperations()
 
 	aTree.Size(); cout << endl;
 	aTree.SizeUsingRecursion(); cout << endl;
+	
+	aTree.FindMaxElementIterative(); cout << endl;
+	aTree.Delete(6);
+	aTree.InOrderTraversal(); cout << endl;
+	aTree.Delete(2);
+	aTree.InOrderTraversal(); cout << endl;
 
-	if (AreMirrors(aTree.root, bTree.root))
-		cout << "\n Mirror Trees";
-	else
-		cout << "\nNot Mirror Trees. ";
-
-	TreeNode * newMirroredRootNode = MakeMirrorTree(aTree.root);
-	BinarySearchTree newTree(newMirroredRootNode);
-
-	newTree.InOrderTraversal(); cout << endl;
-	newTree.LevelOrderTraversal(); cout << endl;
-	newTree.ReverseLevelOrderTraversal(); cout << endl;
 }
 
 
