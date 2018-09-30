@@ -246,7 +246,7 @@ TreeNode* MakeMirrorTree(TreeNode * root)
 	return root;
 }
 
-void TreeOperations()
+void BinaryTreeOperations()
 {
 
 	BinaryTree aTree;
@@ -260,9 +260,17 @@ void TreeOperations()
 	aTree.PreOrderTraversalIterative(); cout << endl;
 	aTree.PostOrderTraversal(); cout << endl;
 	aTree.PostOrderTraversalIterativeDSBook(); cout << endl;
+	aTree.PostOrderTraversalIterativeGFGOneStsack(); cout << endl;
+	aTree.PostOrderTraversalIterativeGFGTwoStsacks(); cout << endl;
 	
 	aTree.LevelOrderTraversal(); cout << endl;
 	aTree.ReverseLevelOrderTraversal(); cout << endl;
+
+	aTree.FindMaxElementIterative(); cout << endl;
+	aTree.FindMaxElementRecursive(); cout << endl;
+	
+	aTree.Size(); cout << endl;
+	aTree.SizeUsingRecursion(); cout << endl;
 
 	if (AreMirrors(aTree.root, bTree.root))
 		cout << "\n Mirror Trees";
@@ -275,7 +283,17 @@ void TreeOperations()
 	newTree.InOrderTraversal(); cout << endl;
 	newTree.LevelOrderTraversal(); cout << endl;
 	newTree.ReverseLevelOrderTraversal(); cout << endl;
+
 }
+
+void BinarySearchTreeOperations()
+{
+
+
+
+
+}
+
 
 int main()
 {
@@ -288,7 +306,9 @@ int main()
 	//StackOperations(stack1);
 	//StackOperations(stack2);
 	
-	TreeOperations();
+	//BinaryTreeOperations();
+
+	BinarySearchTreeOperations();
 
 	getchar();
     return 0;

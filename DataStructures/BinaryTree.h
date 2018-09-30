@@ -16,6 +16,8 @@ public:
 	void InOrderTraversalIterative();
 	void PreOrderTraversalIterative();
 	void PostOrderTraversalIterativeDSBook();
+	void PostOrderTraversalIterativeGFGOneStsack();
+	void PostOrderTraversalIterativeGFGTwoStsacks();
 
 	void InOrderTraversal();
 	void PostOrderTraversal();
@@ -23,4 +25,10 @@ public:
 
 	void LevelOrderTraversal();
 	void ReverseLevelOrderTraversal();
+
+	int FindMaxElementIterative();
+	int FindMaxElementRecursive();
+
+	int Size();
+	int SizeUsingRecursion();
 };

@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="DataStructures.h" />
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="SingleLinkedList.h" />
     <ClInclude Include="Stack.h" />
