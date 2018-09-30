@@ -7,10 +7,8 @@
 #include "StackUsingArray.h"
 #include "StackUsingList.h"
 #include "Stack.h"
-#include <string>
-#include <stack>
-#include <queue>
 #include "BinaryTree.h"
+#include "BinarySearchTree.h"
 
 
 
@@ -283,15 +281,44 @@ void BinaryTreeOperations()
 	newTree.InOrderTraversal(); cout << endl;
 	newTree.LevelOrderTraversal(); cout << endl;
 	newTree.ReverseLevelOrderTraversal(); cout << endl;
-
 }
 
 void BinarySearchTreeOperations()
 {
+	BinarySearchTree aTree;
+	BinarySearchTree bTree;
+	aTree.Insert(1);	aTree.Insert(2);	aTree.Insert(3); 	aTree.Insert(4);	aTree.Insert(5);  	aTree.Insert(6);  	aTree.Insert(7);
+	bTree.Insert(1);	bTree.Insert(2);	bTree.Insert(3);	bTree.Insert(4);	bTree.Insert(5);	bTree.Insert(6);	bTree.Insert(7);
 
+	aTree.InOrderTraversal(); cout << endl;
+	aTree.InOrderTraversalIterative(); cout << endl;
+	aTree.PreOrderTraversal(); cout << endl;
+	aTree.PreOrderTraversalIterative(); cout << endl;
+	aTree.PostOrderTraversal(); cout << endl;
+	aTree.PostOrderTraversalIterativeDSBook(); cout << endl;
+	aTree.PostOrderTraversalIterativeGFGOneStsack(); cout << endl;
+	aTree.PostOrderTraversalIterativeGFGTwoStsacks(); cout << endl;
 
+	aTree.LevelOrderTraversal(); cout << endl;
+	aTree.ReverseLevelOrderTraversal(); cout << endl;
 
+	aTree.FindMaxElementIterative(); cout << endl;
+	aTree.FindMaxElementRecursive(); cout << endl;
 
+	aTree.Size(); cout << endl;
+	aTree.SizeUsingRecursion(); cout << endl;
+
+	if (AreMirrors(aTree.root, bTree.root))
+		cout << "\n Mirror Trees";
+	else
+		cout << "\nNot Mirror Trees. ";
+
+	TreeNode * newMirroredRootNode = MakeMirrorTree(aTree.root);
+	BinarySearchTree newTree(newMirroredRootNode);
+
+	newTree.InOrderTraversal(); cout << endl;
+	newTree.LevelOrderTraversal(); cout << endl;
+	newTree.ReverseLevelOrderTraversal(); cout << endl;
 }
 
 

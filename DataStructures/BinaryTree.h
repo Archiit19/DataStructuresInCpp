@@ -1,34 +1,19 @@
 #pragma once
-#include "stdafx.h"
-#include "TreeNode.h"
+#include "Tree.h"
 
-class BinaryTree
+class BinaryTree : public Tree
 {
 public:
-	TreeNode * root;
-
-	BinaryTree(); 
-	BinaryTree(TreeNode * rootNode);
+	BinaryTree() : Tree() {};
+	BinaryTree(TreeNode * rootNode) : Tree(rootNode) {};
 
 	void Insert(int data);
 	
-
-	void InOrderTraversalIterative();
-	void PreOrderTraversalIterative();
-	void PostOrderTraversalIterativeDSBook();
-	void PostOrderTraversalIterativeGFGOneStsack();
-	void PostOrderTraversalIterativeGFGTwoStsacks();
-
-	void InOrderTraversal();
-	void PostOrderTraversal();
-	void PreOrderTraversal();
-
-	void LevelOrderTraversal();
-	void ReverseLevelOrderTraversal();
-
 	int FindMaxElementIterative();
+	int FindMaxHelper(TreeNode * temp);
 	int FindMaxElementRecursive();
 
 	int Size();
+	int SizeRecursionHelper(TreeNode * temp);
 	int SizeUsingRecursion();
 };
