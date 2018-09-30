@@ -251,13 +251,8 @@ void TreeOperations()
 
 	BinaryTree aTree;
 	BinaryTree bTree;
-	aTree.Insert(1);	  bTree.Insert(1);
-	aTree.Insert(2);	  bTree.Insert(2);
-	aTree.Insert(3);	  bTree.Insert(3);
-	aTree.Insert(4);	  bTree.Insert(4);
-	aTree.Insert(5);	  bTree.Insert(5);
-	aTree.Insert(6);	  bTree.Insert(6);
-	aTree.Insert(7);	  bTree.Insert(7);
+	aTree.Insert(1);	aTree.Insert(2);	aTree.Insert(3); 	aTree.Insert(4);	aTree.Insert(5);  	aTree.Insert(6);  	aTree.Insert(7);
+	bTree.Insert(1);	bTree.Insert(2);	bTree.Insert(3);	bTree.Insert(4);	bTree.Insert(5);	bTree.Insert(6);	bTree.Insert(7);
 
 	aTree.InOrderTraversal(); cout << endl;
 	aTree.InOrderTraversalIterative(); cout << endl;
@@ -267,10 +262,7 @@ void TreeOperations()
 	aTree.PostOrderTraversalIterativeDSBook(); cout << endl;
 	
 	aTree.LevelOrderTraversal(); cout << endl;
-	
 	aTree.ReverseLevelOrderTraversal(); cout << endl;
-
-
 
 	if (AreMirrors(aTree.root, bTree.root))
 		cout << "\n Mirror Trees";
