@@ -37,34 +37,37 @@ public:
 
 
 // Queue implementation using Vector.
-template <typename T>
 class QueueUsingVector : public Queue
 {
 private:
-	std::vector<T> queue_a;
+	std::vector<int> queue_a;
 
 public:
 	// Implementation of some functions is inherited from "Queue" Base Class.
-	void Enqueue(T data);
-	T DeQueue();
-	T Front();
+	void Enqueue(int data);
+	int DeQueue();
+	int Front();
 	void PrintQueue();
 	void DeleteQueue();
 };
 
 
 // Queue implementation using Linked list.
-template <typename T>
 class QueueUsingList : public Queue
 {
 private:
-	ListNode<T> *top;
+	ListNode<int> *rear, *front;
 
 public:
 	// Implementation of some functions is inherited from "Queue" Base Class.
-	void Enqueue(T data);
-	T DeQueue();
-	T Front();
+	QueueUsingList()
+	{
+		front = NULL;
+		rear = NULL;
+	}
+	void EnQueue(int data);
+	int DeQueue();
+	int Front();
 	void PrintQueue();
 	void DeleteQueue();
 };

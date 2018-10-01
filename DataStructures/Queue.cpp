@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Queue.h"
+#include "ListNode.h"
 
 using namespace std;
 
@@ -87,59 +88,105 @@ void QueueUsingArray::DeleteQueue()
 
 
 
-template<typename T>
-void QueueUsingVector<T>::Enqueue(T data)
+void QueueUsingVector::Enqueue(int data)
+{
+	queue_a.push_back(data);
+}
+
+int QueueUsingVector::DeQueue()
+{
+	return 0;
+}
+
+int QueueUsingVector::Front()
+{
+	return 0;
+}
+
+void QueueUsingVector::PrintQueue()
 {
 }
 
-template<typename T>
-T QueueUsingVector<T>::DeQueue()
-{
-	return T();
-}
-
-template<typename T>
-T QueueUsingVector<T>::Front()
-{
-	return T();
-}
-
-template<typename T>
-void QueueUsingVector<T>::PrintQueue()
-{
-}
-
-template<typename T>
-void QueueUsingVector<T>::DeleteQueue()
+void QueueUsingVector::DeleteQueue()
 {
 }
 
 
 
 
-template<typename T>
-inline void QueueUsingList<T>::Enqueue(T data)
+void QueueUsingList::EnQueue(int data)
 {
+	ListNode<int> * newNode = new ListNode<int>(data);
+	if (rear == NULL)
+		rear = newNode;
+	else
+	{
+		rear->next = newNode;
+		rear = rear->next;
+	}
+	if (front == NULL)
+		front = rear;
+	size++;
 }
 
-template<typename T>
-inline T QueueUsingList<T>::DeQueue()
+int QueueUsingList::DeQueue()
 {
-	return T();
+	if (IsEmptyQueue())
+	{
+		cout << "Queue Underflow " << endl;
+	}
+	else
+	{
+		ListNode<int>* temp = front;
+		int temp_data = temp->data;
+		front = front->next;
+		size--;
+		cout << "Element removed from Queue is : " << temp_data << endl;
+		delete(temp);
+		return temp_data;
+	}
+	return -1;
 }
 
-template<typename T>
-inline T QueueUsingList<T>::Front()
+
+int QueueUsingList::Front()
 {
-	return T();
+	if (IsEmptyQueue())
+	{
+		cout << "Queue is Empty. " << endl;
+	}
+	else
+	{
+		cout << "Element removed from Queue is : " << front->data << endl;
+		return front->data;
+	}
+	return -1;
 }
 
-template<typename T>
-inline void QueueUsingList<T>::PrintQueue()
+
+void QueueUsingList::PrintQueue()
 {
+	if (!IsEmptyQueue())
+	{
+		cout << "The Queue is : ";
+		ListNode<int>* temp = front;
+		do {
+			cout << temp->data << " ";
+			temp = temp->next;
+		} while (temp != NULL);
+	}
+	else
+		cout << "Queue is Empty.";
+	cout << endl;
 }
 
-template<typename T>
-inline void QueueUsingList<T>::DeleteQueue()
+
+void QueueUsingList::DeleteQueue()
 {
+	while (front != NULL)
+	{
+		ListNode<int> * temp = front;
+		front = front->next;
+		delete(temp);
+	}
 }

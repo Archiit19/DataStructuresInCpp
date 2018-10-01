@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include <iostream>
 #include "ListNode.h"
 #include "SingleLinkedList.h"
 #include "Stack.h"
@@ -228,7 +229,19 @@ void QueueOperations()
 	qa.PrintQueue();
 	qa.Enqueue(10);	qa.Enqueue(20);	qa.Enqueue(30);	qa.Enqueue(40);	qa.Enqueue(50);	qa.Enqueue(60);	qa.Enqueue(70);	qa.Enqueue(80);
 	qa.PrintQueue();
-
+	
+	QueueUsingList qL;
+	qL.EnQueue(10);	qL.EnQueue(20);	qL.EnQueue(30);	qL.EnQueue(40);	qL.EnQueue(50);	qL.EnQueue(60);	qL.EnQueue(70);	qL.EnQueue(80);
+	qL.PrintQueue();
+	qL.DeQueue(); qL.DeQueue();	qL.DeQueue();	qL.DeQueue();	qL.DeQueue();
+	qL.PrintQueue();
+	qL.EnQueue(10);	qL.EnQueue(20);	qL.EnQueue(30);	qL.EnQueue(40);	qL.EnQueue(50);	qL.EnQueue(60);	qL.EnQueue(70);	qL.EnQueue(80);
+	qL.PrintQueue();
+	qL.DeQueue();	qL.DeQueue();	qL.DeQueue();	qL.DeQueue();	qL.DeQueue(); qL.DeQueue(); qL.DeQueue(); qL.DeQueue(); qL.DeQueue(); qL.DeQueue(); qL.DeQueue();
+	qL.PrintQueue();
+	qL.EnQueue(10);	qL.EnQueue(20);	qL.EnQueue(30);	qL.EnQueue(40);	qL.EnQueue(50);	qL.EnQueue(60);	qL.EnQueue(70);	qL.EnQueue(80);
+	qL.PrintQueue();
+	
 }
 
 bool AreMirrors(TreeNode * A, TreeNode *B)
