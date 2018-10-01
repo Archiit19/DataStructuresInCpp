@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Queue.h"
-#include "ListNode.h"
 
 using namespace std;
 
