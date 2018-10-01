@@ -1,7 +1,5 @@
-/*
-
 #include "stdafx.h"
-#include "StackUsingList.h"
+#include "Stack.h"
 
 using namespace std;
 
@@ -26,7 +24,7 @@ T StackUsingList<T>::Pop()
 		top = top->next;
 		delete topNode;
 		size--;
-		return topData;	
+		return topData;
 	}
 	cout << "Exception in Popping element from a Empty Stack..!!" << endl;
 	return -1;
@@ -46,7 +44,7 @@ T StackUsingList<T>::Top()
 }
 
 template <typename T>
-void PrintStack()
+void StackUsingList<T>::PrintStack()
 {
 	ListNode<T> * current = top;
 	cout << "\nStack is : ";
@@ -59,7 +57,7 @@ void PrintStack()
 }
 
 template <typename T>
-void DeleteStack()
+void StackUsingList<T>::DeleteStack()
 {
 	while (top != NULL)
 	{
@@ -70,4 +68,53 @@ void DeleteStack()
 }
 
 
- */
+
+
+template<typename T>
+void StackUsingArray<T>::Push(T data)
+{
+	stack_a.push_back(data);
+	size++;
+}
+
+template<typename T>
+T StackUsingArray<T>::Pop()
+{
+	if (!IsEmptyStack())
+	{
+		T elem_to_pop = stack_a.back();
+		stack_a.pop_back();
+		size--;
+		return elem_to_pop;
+	}
+	cout << "\nException in popping element : Stack is Empty..!!" << endl;
+	return -1;
+}
+
+template<typename T>
+T StackUsingArray<T>::Top()
+{
+	if (!IsEmptyStack())
+	{
+		T elem_to_pop = stack_a.back();
+		return elem_to_pop;
+	}
+	cout << "\nException in popping element : Stack is Empty..!!" << endl;
+	return -1;
+}
+
+template<typename T>
+void StackUsingArray<T>::PrintStack()
+{
+	cout << "\nStack is : ";
+	for (int i = size - 1; i >= 0; i--)
+		cout << stack_a[i] << " ";
+	cout << endl;
+}
+
+template<typename T>
+void StackUsingArray<T>::DeleteStack()
+{
+	stack_a.clear();
+	size = 0;
+}

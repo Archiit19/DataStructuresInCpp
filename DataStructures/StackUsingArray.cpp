@@ -1,3 +1,5 @@
+/*
+
 #include "stdafx.h"
 #include "StackUsingArray.h"
 
@@ -55,3 +57,6 @@ void DeleteStack()
 
 
 
+
+
+*/

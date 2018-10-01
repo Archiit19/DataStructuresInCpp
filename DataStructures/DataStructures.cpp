@@ -4,13 +4,10 @@
 #include "stdafx.h"
 #include "ListNode.h"
 #include "SingleLinkedList.h"
-#include "StackUsingArray.h"
-#include "StackUsingList.h"
 #include "Stack.h"
+#include "Queue.h"
 #include "BinaryTree.h"
 #include "BinarySearchTree.h"
-
-
 
 using namespace std;
 
@@ -218,6 +215,22 @@ void StackOperations(Stack * sa)
 	//PostfixEvaluation();
 }
 
+void QueueOperations()
+{
+	QueueUsingArray qa(10);
+	qa.Enqueue(10);	qa.Enqueue(20);	qa.Enqueue(30);	qa.Enqueue(40);	qa.Enqueue(50);	qa.Enqueue(60);	qa.Enqueue(70);	qa.Enqueue(80);
+	qa.PrintQueue();
+	qa.DeQueue(); qa.DeQueue();	qa.DeQueue();	qa.DeQueue();	qa.DeQueue();
+	qa.PrintQueue();
+	qa.Enqueue(10);	qa.Enqueue(20);	qa.Enqueue(30);	qa.Enqueue(40);	qa.Enqueue(50);	qa.Enqueue(60);	qa.Enqueue(70);	qa.Enqueue(80);
+	qa.PrintQueue();
+	qa.DeQueue();	qa.DeQueue();	qa.DeQueue();	qa.DeQueue();	qa.DeQueue(); qa.DeQueue(); qa.DeQueue(); qa.DeQueue();
+	qa.PrintQueue();
+	qa.Enqueue(10);	qa.Enqueue(20);	qa.Enqueue(30);	qa.Enqueue(40);	qa.Enqueue(50);	qa.Enqueue(60);	qa.Enqueue(70);	qa.Enqueue(80);
+	qa.PrintQueue();
+
+}
+
 bool AreMirrors(TreeNode * A, TreeNode *B)
 {
 	if (A == NULL && B == NULL)
@@ -328,9 +341,10 @@ int main()
 	//StackOperations(stack1);
 	//StackOperations(stack2);
 	
+	QueueOperations();
 	//BinaryTreeOperations();
+	//BinarySearchTreeOperations();
 
-	BinarySearchTreeOperations();
 
 	getchar();
     return 0;
