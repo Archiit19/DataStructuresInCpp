@@ -10,10 +10,10 @@ private:
 	int m_size;
 
 public :
-	Sort(int size, int array1[]) 
+	Sort(int size, vector<int> array) 
 	{
 		m_size = size;
-		m_array = vector<int>(array1, array1+size);
+		m_array = array;
 	}
 	void PrintArray();
 	void BubbleSort();
