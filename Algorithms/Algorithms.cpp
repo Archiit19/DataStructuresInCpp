@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-	int n;
+	/*int n;
 	cout << "Enter the number of Elements in array : ";
 	cin >> n;
 	vector<int> array;
@@ -38,13 +38,21 @@ int main()
 
 	Sort s5(n, array);
 	s5.SelectionStableSortGFG();
-	s5.PrintArray();
+	s5.PrintArray();*/
 
 	vector<int> array6 = { 4, 3, 2, 10 ,12 ,1, 5, 6 };
 	int n6 = 8;
 	Sort s6(n6, array6);
 	s6.InsertionSort();
 	s6.PrintArray();
+
+	Sort s7(n6, array6);
+	s7.QuickSort();
+	s7.PrintArray();
+	
+	Sort s8(n6, array6);
+	s8.QuickSort();
+	s8.PrintArray();
 
     return 0;
 }
