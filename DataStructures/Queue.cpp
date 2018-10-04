@@ -33,6 +33,7 @@ void QueueUsingArray::Enqueue(int data)
 	}
 }
 
+
 int QueueUsingArray::DeQueue()
 {
 	if (IsEmptyQueue())
