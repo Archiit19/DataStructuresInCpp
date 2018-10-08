@@ -9,6 +9,7 @@
 #include "Queue.h"
 #include "BinaryTree.h"
 #include "BinarySearchTree.h"
+#include "Graph.h"
 
 using namespace std;
 
@@ -354,10 +355,16 @@ int main()
 	//StackOperations(stack1);
 	//StackOperations(stack2);
 	
-	QueueOperations();
+	//QueueOperations();
+	
 	//BinaryTreeOperations();
 	//BinarySearchTreeOperations();
-
+	int n;
+	cout << "Enter the number of vertices in Graph : ";
+	cin >> n;
+	Graph g(n);
+	g.AcceptInput();
+	g.SimpleDisplay();
 
 	getchar();
     return 0;
