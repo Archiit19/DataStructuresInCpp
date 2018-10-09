@@ -9,6 +9,7 @@ private:
 	int m_vertices;
 	//int * weights;
 	ListNode<int> ** m_graphNode;
+	void DFSRecursiveHelper(int vertex, bool * visited);
 
 public:
 	Graph(int vertices)
@@ -21,7 +22,12 @@ public:
 	void AcceptInput();
 	void SimpleDisplay();
 	void AddEdge(int src, int dest);
+
 	void DisplayBFSTraversal();
+
 	void DisplayDFSTraversal();
+	void DFSTraversalRecursive();
+
+	void ShortestPathUnWeightedPath();
 
 };

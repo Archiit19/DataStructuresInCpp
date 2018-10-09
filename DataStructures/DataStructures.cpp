@@ -10,6 +10,7 @@
 #include "BinaryTree.h"
 #include "BinarySearchTree.h"
 #include "Graph.h"
+#include "DataStructures.h"
 
 using namespace std;
 
@@ -365,7 +366,10 @@ int main()
 	Graph g(n);
 	g.AcceptInput();
 	g.SimpleDisplay();
-
+	g.DisplayDFSTraversal();
+	g.DisplayBFSTraversal();
+	g.DFSTraversalRecursive();
+	g.ShortestPathUnWeightedPath();
 	getchar();
     return 0;
 }
