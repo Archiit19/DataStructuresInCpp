@@ -1,7 +1,7 @@
 #pragma once
 #include "ListNode.h"
 
-class Graph
+class GraphUsingAdjancencyList
 {
 // Graph is represented using Adjacency List. 
 private:
@@ -12,7 +12,7 @@ private:
 	void DFSRecursiveHelper(int vertex, bool * visited);
 
 public:
-	Graph(int vertices)
+	GraphUsingAdjancencyList(int vertices)
 	{
 		m_vertices = vertices;
 		m_graphNode = new ListNode<int> * [m_vertices];

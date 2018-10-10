@@ -9,8 +9,8 @@
 #include "Queue.h"
 #include "BinaryTree.h"
 #include "BinarySearchTree.h"
-#include "Graph.h"
-#include "DataStructures.h"
+#include "GraphUsingAdjacencyList.h"
+#include "GraphUsingAdjacencyMatrix.h"
 
 using namespace std;
 
@@ -344,6 +344,31 @@ void BinarySearchTreeOperations()
 
 }
 
+void GraphUsingAdjacencyListOperations()
+{
+	int n;
+	cout << "Enter the number of vertices in Graph : ";
+	cin >> n;
+	GraphUsingAdjancencyList g(n);
+	g.AcceptInput();
+	g.SimpleDisplay();
+	g.DisplayDFSTraversal();
+	g.DisplayBFSTraversal();
+	g.DFSTraversalRecursive();
+	g.ShortestPathUnWeightedPath();
+}
+
+void GraphUsingAdjacencyMatrixOperations()
+{
+	int n;
+	cout << "Enter the number of vertices in Graph : ";
+	cin >> n;
+	GraphUsingAdjancencyMatrix g(n);
+	g.AcceptInput();
+	g.SimpleDisplay();
+	g.ShortestPathWeighted();
+}
+
 
 int main()
 {
@@ -360,16 +385,11 @@ int main()
 	
 	//BinaryTreeOperations();
 	//BinarySearchTreeOperations();
-	int n;
-	cout << "Enter the number of vertices in Graph : ";
-	cin >> n;
-	Graph g(n);
-	g.AcceptInput();
-	g.SimpleDisplay();
-	g.DisplayDFSTraversal();
-	g.DisplayBFSTraversal();
-	g.DFSTraversalRecursive();
-	g.ShortestPathUnWeightedPath();
+
+	//GraphUsingAdjacencyListOperations();
+	GraphUsingAdjacencyMatrixOperations();
+
+	
 	getchar();
     return 0;
 }

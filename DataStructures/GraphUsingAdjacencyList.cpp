@@ -1,10 +1,10 @@
 #include "stdafx.h"
-#include "Graph.h"
+#include "GraphUsingAdjacencyList.h"
 
 
 using namespace std;
 
-void Graph::AcceptInput()
+void GraphUsingAdjancencyList::AcceptInput()
 {
 	int edges, source, destination;
 	cout << "\nEnter the number of Edges in Graph : ";
@@ -19,7 +19,7 @@ void Graph::AcceptInput()
 	}
 }
 
-void Graph::AddEdge(int src, int dest)
+void GraphUsingAdjancencyList::AddEdge(int src, int dest)
 {
 	if(m_graphNode[src] == NULL)
 		m_graphNode[src] = new ListNode<int>(dest);
@@ -41,7 +41,7 @@ void Graph::AddEdge(int src, int dest)
 	}
 }
 
-void Graph::SimpleDisplay()
+void GraphUsingAdjancencyList::SimpleDisplay()
 {
 	
 	for (int i = 0; i < m_vertices; i++)
@@ -57,7 +57,7 @@ void Graph::SimpleDisplay()
 	}
 }
 
-void Graph::DisplayBFSTraversal()
+void GraphUsingAdjancencyList::DisplayBFSTraversal()
 {
 	int v;
 	queue<int> q;
@@ -89,7 +89,7 @@ void Graph::DisplayBFSTraversal()
 	}
 }
 
-void Graph::DisplayDFSTraversal()
+void GraphUsingAdjancencyList::DisplayDFSTraversal()
 {
 	int v;
 	stack<int> s;
@@ -121,7 +121,7 @@ void Graph::DisplayDFSTraversal()
 	}
 }
 
-void Graph::DFSRecursiveHelper(int vertex, bool * visited)
+void GraphUsingAdjancencyList::DFSRecursiveHelper(int vertex, bool * visited)
 {
 	if (!visited[vertex])
 	{
@@ -137,7 +137,7 @@ void Graph::DFSRecursiveHelper(int vertex, bool * visited)
 	}
 }
 
-void Graph::DFSTraversalRecursive()
+void GraphUsingAdjancencyList::DFSTraversalRecursive()
 {
 	int v;
 	cout << "\nEnter the starting vertex for DFS Recursive Traversal : ";
@@ -149,7 +149,7 @@ void Graph::DFSTraversalRecursive()
     DFSRecursiveHelper(v, visited);
 }
 
-void Graph::ShortestPathUnWeightedPath()
+void GraphUsingAdjancencyList::ShortestPathUnWeightedPath()
 {
 	int sourceVertex;
 	cout << "\nEnter the source vertex to find shortest path : ";
