@@ -60,6 +60,9 @@
     <ClInclude Include="GraphUsingAdjacencyList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Heap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -96,6 +99,9 @@
       <Filter>Header Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GraphUsingAdjacencyList.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Heap.cpp">
       <Filter>Header Files\Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -11,6 +11,7 @@
 #include "BinarySearchTree.h"
 #include "GraphUsingAdjacencyList.h"
 #include "GraphUsingAdjacencyMatrix.h"
+#include "Heap.h"
 
 using namespace std;
 
@@ -387,11 +388,25 @@ int main()
 	//BinarySearchTreeOperations();
 
 	//GraphUsingAdjacencyListOperations();
-	GraphUsingAdjacencyMatrixOperations();
+	//GraphUsingAdjacencyMatrixOperations();
 
-	
+	Heap h1(MinHeap);
+	h1.Insert(20);
+	h1.Insert(50);
+	h1.Insert(10);
+	h1.Insert(15);
+	h1.Insert(18);
+	h1.Insert(80);
+	h1.Insert(100);
+	h1.Insert(5);
+	h1.PrintHeap();
+	h1.Delete();
+	h1.PrintHeap();
+	h1.Insert(2);
+
 	getchar();
-    return 0;
+	return 0;
+
 }
 
 

@@ -150,6 +150,7 @@
     <ClInclude Include="DataStructures.h" />
     <ClInclude Include="GraphUsingAdjacencyList.h" />
     <ClInclude Include="GraphUsingAdjacencyMatrix.h" />
+    <ClInclude Include="Heap.h" />
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="SingleLinkedList.h" />
@@ -166,6 +167,7 @@
     <ClCompile Include="DataStructures.cpp" />
     <ClCompile Include="GraphUsingAdjacencyList.cpp" />
     <ClCompile Include="GraphUsingAdjacencyMatrix.cpp" />
+    <ClCompile Include="Heap.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="SingleLinkedList.cpp" />
     <ClCompile Include="Stack.cpp" />
