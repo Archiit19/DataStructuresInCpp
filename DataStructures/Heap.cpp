@@ -8,9 +8,9 @@ using namespace std;
 
 void Heap::Swap(int &a, int&b)
 {
-	int * temp = &a;
+	int temp = a;
 	a = b;
-	b = *temp;
+	b = temp;
 }
 
 void Heap::PercolateUp()
@@ -18,7 +18,7 @@ void Heap::PercolateUp()
 	if (m_heapType == MaxHeap)
 	{
 		size_t i = m_heapArray.size()-1;
-		while (i >= 1 && m_heapArray[i] < m_heapArray[ParentIndex(i)])
+		while (i > 1 && m_heapArray[i] > m_heapArray[ParentIndex(i)])
 		{
 			Swap(m_heapArray[i], m_heapArray[ParentIndex(i)]);
 			i = i / 2;
@@ -27,7 +27,8 @@ void Heap::PercolateUp()
 	else
 	{
 		size_t i = m_heapArray.size() - 1;
-		while (i >= 1 && m_heapArray[i] > m_heapArray[ParentIndex(i)])
+		
+		while (i > 1 && m_heapArray[i] < m_heapArray[ParentIndex(i)])
 		{
 			Swap(m_heapArray[i], m_heapArray[ParentIndex(i)]);
 			i = i / 2;
@@ -40,38 +41,49 @@ void Heap::PercolateDown()
 	if (m_heapType == MaxHeap)
 	{
 		unsigned int i = 1;
-		while (i < m_heapArray.size())
+		while ( 2*i < m_heapArray.size())
 		{
-			if (m_heapArray[i] < m_heapArray[LeftChildIndex(i)])
+			if (m_heapArray[LeftChildIndex(i)] > m_heapArray[RighthildIndex(i)])
 			{
-				Swap(m_heapArray[i], m_heapArray[LeftChildIndex(i)]);
-				i = 2 * i;
+				if (m_heapArray[i] < m_heapArray[LeftChildIndex(i)])
+				{
+					Swap(m_heapArray[i], m_heapArray[LeftChildIndex(i)]);
+					i = 2 * i;
+				}
 			}
-			else if (m_heapArray[i] < m_heapArray[RighthildIndex(i)])
+			else if (m_heapArray[LeftChildIndex(i)] < m_heapArray[RighthildIndex(i)])
 			{
-				Swap(m_heapArray[i], m_heapArray[RighthildIndex(i)]);
-				i = 2 * i + 1;
+				if (m_heapArray[i] < m_heapArray[RighthildIndex(i)])
+				{
+					Swap(m_heapArray[i], m_heapArray[RighthildIndex(i)]);
+					i = 2 * i + 1;
+				}
 			}
 		}
 	}
 	else
 	{
 		unsigned int i = 1;
-		while (i < m_heapArray.size())
+		while ( 2*i < m_heapArray.size())
 		{
-			if (m_heapArray[i] < m_heapArray[LeftChildIndex(i)])
+			if (m_heapArray[LeftChildIndex(i)] < m_heapArray[RighthildIndex(i)])
 			{
-				Swap(m_heapArray[i], m_heapArray[LeftChildIndex(i)]);
-				i = 2 * i;
+				if (m_heapArray[i] > m_heapArray[LeftChildIndex(i)])
+				{
+					Swap(m_heapArray[i], m_heapArray[LeftChildIndex(i)]);
+					i = 2 * i;
+				}
 			}
-			else if (m_heapArray[i] < m_heapArray[RighthildIndex(i)])
+			else if (m_heapArray[LeftChildIndex(i)] > m_heapArray[RighthildIndex(i)])
 			{
-				Swap(m_heapArray[i], m_heapArray[RighthildIndex(i)]);
-				i = 2 * i + 1;
+				if (m_heapArray[i] > m_heapArray[RighthildIndex(i)])
+				{
+					Swap(m_heapArray[i], m_heapArray[RighthildIndex(i)]);
+					i = 2*i + 1;
+				}
 			}
 		}
 	}
-
 }
 
 int Heap::LeftChildIndex(int parentIndex)

@@ -370,7 +370,26 @@ void GraphUsingAdjacencyMatrixOperations()
 	g.ShortestPathWeighted();
 }
 
+void HeapOperations()
+{
 
+	Heap h1(MaxHeap);  // Use "MinHeap" to create MinHeap ins place of MaxHeap. 
+	h1.Insert(20);
+	h1.Insert(50);
+	h1.Insert(10);
+	h1.Insert(15);
+	h1.Insert(18);
+	h1.Insert(80);
+	h1.Insert(100);
+	h1.Insert(5);
+	h1.PrintHeap();
+	cout << h1.Delete() << endl;
+	h1.PrintHeap();
+	h1.Insert(2);
+	h1.PrintHeap();
+	cout << h1.Delete() << endl;
+	h1.PrintHeap();
+}
 int main()
 {
 	//SingleLinkedList<int> llist;
@@ -389,20 +408,9 @@ int main()
 
 	//GraphUsingAdjacencyListOperations();
 	//GraphUsingAdjacencyMatrixOperations();
+	
+	//Heap Operations();
 
-	Heap h1(MinHeap);
-	h1.Insert(20);
-	h1.Insert(50);
-	h1.Insert(10);
-	h1.Insert(15);
-	h1.Insert(18);
-	h1.Insert(80);
-	h1.Insert(100);
-	h1.Insert(5);
-	h1.PrintHeap();
-	h1.Delete();
-	h1.PrintHeap();
-	h1.Insert(2);
 
 	getchar();
 	return 0;
