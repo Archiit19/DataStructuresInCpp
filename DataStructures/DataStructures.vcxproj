@@ -148,10 +148,12 @@
     <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="DataStructures.h" />
+    <ClInclude Include="DisjointSet.h" />
     <ClInclude Include="GraphUsingAdjacencyList.h" />
     <ClInclude Include="GraphUsingAdjacencyMatrix.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="ListNode.h" />
+    <ClInclude Include="PQueue.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="SingleLinkedList.h" />
     <ClInclude Include="Stack.h" />
@@ -165,9 +167,11 @@
     <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="DataStructures.cpp" />
+    <ClCompile Include="DisjointSet.cpp" />
     <ClCompile Include="GraphUsingAdjacencyList.cpp" />
     <ClCompile Include="GraphUsingAdjacencyMatrix.cpp" />
     <ClCompile Include="Heap.cpp" />
+    <ClCompile Include="PQueue.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="SingleLinkedList.cpp" />
     <ClCompile Include="Stack.cpp" />

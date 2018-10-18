@@ -12,6 +12,7 @@
 #include "GraphUsingAdjacencyList.h"
 #include "GraphUsingAdjacencyMatrix.h"
 #include "Heap.h"
+#include "DisjointSet.h"
 
 using namespace std;
 
@@ -171,6 +172,7 @@ void InfixToPostfixChar()
 	}
 }
 */
+
 // Using defined StackUsingArray.
 /*
 void PostfixEvaluation()
@@ -390,6 +392,25 @@ void HeapOperations()
 	cout << h1.Delete() << endl;
 	h1.PrintHeap();
 }
+
+void DisjointSetOperations()
+{
+	DisjointSetQuickUnionSlowFind dsQF(10);
+	dsQF.Union(1, 6);
+	dsQF.Union(2, 7);
+	dsQF.Union(3, 5);
+	dsQF.Union(1, 2);
+	dsQF.Union(0, 9);
+	dsQF.Union(0, 3);
+	cout << dsQF.Find(0, 6);
+	cout << dsQF.Find(0, 1);
+	cout << dsQF.Find(1, 7);
+	cout << dsQF.Find(1, 8);
+	cout << dsQF.Find(3, 9);
+
+
+}
+
 int main()
 {
 	//SingleLinkedList<int> llist;
@@ -411,6 +432,7 @@ int main()
 	
 	//Heap Operations();
 
+	DisjointSetOperations();
 
 	getchar();
 	return 0;
