@@ -16,9 +16,9 @@
 
 using namespace std;
 
-template <typename T>
-void SingleLinkedListOperations(SingleLinkedList<T> list)
+void SingleLinkedListOperations()
 {
+	SingleLinkedList<int> list;
 	int list_count = 0, data = 0;
 	cout << "Enter number of nodes in Single Linked List : ";
 	cin >> list_count;
@@ -28,6 +28,9 @@ void SingleLinkedListOperations(SingleLinkedList<T> list)
 		list.InsertInList(data);
 	}
 	list.PrintList();
+	list.SwapPairNodes();
+	list.PrintList();
+
 }
 
 // Returns precedence of operators.
@@ -411,11 +414,11 @@ void DisjointSetOperations()
 
 }
 
+
 int main()
 {
-	//SingleLinkedList<int> llist;
-	//SingleLinkedListOperations(llist);
-	
+	SingleLinkedListOperations();
+
 	//Stack* stack1 = new StackUsingArray<int>();
 	//Stack* stack2 = new StackUsingList<int>();
 	
@@ -432,13 +435,12 @@ int main()
 	
 	//Heap Operations();
 
-	DisjointSetOperations();
+	//DisjointSetOperations();
 
 	getchar();
 	return 0;
 
 }
-
 
 
 

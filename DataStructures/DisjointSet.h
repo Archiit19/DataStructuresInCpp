@@ -46,6 +46,7 @@ public:
 	bool Find(int a, int b);
 };
 
+
 /*
 class DisjointSetQuickUnionBySizeQuickFind : public DisjointSet
 {

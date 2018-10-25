@@ -173,7 +173,6 @@
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="PQueue.cpp" />
     <ClCompile Include="Queue.cpp" />
-    <ClCompile Include="SingleLinkedList.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
